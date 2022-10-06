@@ -7,24 +7,25 @@
 </head>
 <body>
   <div id="aplicacion">
-    <p>Tamaño de la fuente:
-      <input type="range" v-model="tamañoFuente" min=10 max=100>{{tamañoFuente}}
+    <p>Ingrese un nombre sin espacios en blanco:
+      <input type="text" v-model="nombre" v-bind:style="{'color': colorNombre}">
     </p>
-    <p>Color:
-        <input type="color" v-model="colorParrafo">
-    </p>      
-    <p v-bind:style="{'font-size':tamañoFuente+'px', 'color': colorParrafo}">Párrafo de prueba</p>
-
   </div>
  
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  
   <script>
    var app=new Vue({
        el: '#aplicacion',
        data: { 
-         tamañoFuente: 20,
-         colorParrafo: '#000'
+         nombre: ''
+       },
+       computed: {
+         colorNombre: function() {
+           if (this.nombre.includes(' '))
+             return '#f00';
+           else
+             return '#000';
+         }
        }
    })
   </script>
