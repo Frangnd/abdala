@@ -7,34 +7,43 @@
 </head>
 <body>
  <div id="aplicacion">
-    <p>
-      <input type="radio" value="Sin estudios" v-model="estudios" id="sinestudios">
-      <label for="sinestudios">Sin estudios</label>
-    </p>        
-    <p>
-      <input type="radio" value="Primarios" v-model="estudios" id="primarios">
-      <label for="primarios">Primarios</label>
-    </p>
-    <p>
-      <input type="radio" value="Secundarios" v-model="estudios" id="secundarios">
-      <label for="secundarios">Secundarios</label>
-    </p>
-    <p>
-      <input checked type="radio" value="universitarios" v-model="estudios" id="universitarios">
-      <label for="universitarios">Universitarios</label>
-    </p>
-    <p>Sus estudios son:{{estudios}}</p>
-  </div>
-   
+   <p>
+     Ingrese primer valor:
+     <input type="number" v-model="valor1">     
+   </p>
+   <p>Ingrese segundo valor:
+     <input type="number" v-model="valor2">
+   </p>
+   <p>
+     <input type="radio" v-model="operacion" value="suma"> Sumar
+   </p>
+   <p>
+     <input type="radio" v-model="operacion" value="resta"> Resta
+   </p>
+   <p>
+     <button v-on:click="operar">Operar</button>
+   </p>
+   <p>El resultado es:{{resultado}}</p>
+ </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-
-  <script>
-    var app=new Vue({
-      el: '#aplicacion',
-      data:{ 
-        estudios: 'Sin estudios'
-      }
-    })
-  </script>
+ <script>
+   var app=new Vue({
+       el: '#aplicacion',
+       data:{ 
+         valor1: '',
+         valor2: '',
+         operacion: 'suma',
+         resultado: ''
+       },
+       methods: {
+         operar: function() {
+           if (this.operacion==='suma')
+             this.resultado= parseInt(this.valor1) + parseInt(this.valor2);
+             if (this.operacion==='resta')
+             this.resultado= parseInt(this.valor1) - parseInt(this.valor2);             
+         }
+       }
+   })
+ </script>
 </body>
 </html>
