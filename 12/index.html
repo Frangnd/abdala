@@ -7,16 +7,15 @@
 </head>
 <body>
  <div id="aplicacion">
-   <p><textarea v-model="comentarios" cols="100" rows="5" maxlength="200"></textarea></p>
-   <p>Cantidad de caracteres ingresados: {{comentarios.length}}</p>
+   <p><textarea v-model="mensaje" cols="100" rows="5"></textarea></p>
+   <p><textarea v-model="mensaje" cols="100" rows="5"></textarea></p>
  </div>
- 
- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
  <script>
    var app=new Vue({
        el: '#aplicacion',
        data:{ 
-         comentarios:''
+         mensaje:''
        }
    })
  </script>
