@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>JS Class TP n3</title>
+        <script src="functions.js"></script>
+      
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <label><h1>Empleados</h1><br></label>
+            <table style="text-align: center; margin: 0 auto;">
+                <td class="sinborde">
+                    <label for="e1"><h3>Lucas Alvarado</h3></label>
+                    <input type="button" id="e1" onclick="CrearEmpleado('Alvarado Lucas', 'B-11 | Desarrollador Web | Semi-Senior', 5, 'Ingles', 2, true, 250, 'Coordinador Grupo', false, false, false, 0)" value="Agregar">
+                </td>
+                <td>
+                    <label for="e2"><h3>Juan Luis Artigas</h3></label>
+                    <input type="button" id="e2" onclick="CrearEmpleado('Artigas Juan Luis', 'B-10 | Desarrollador Mobile | Junior', 2, 'Ingles', 0, true, 100, undefined, false, false, false, 7500)" value="Agregar">
+                </td>
+                <td class="sinborde">
+                    <label for="e3"><h3>Kevin Casas</h3></label>
+                    <input type="button" id="e3" onclick="CrearEmpleado('Casas Kevin', 'B-2 | Analista en Sistemas | Senior', 20, 'Ingles', 1, true, 350, 'Lider de Equipo', true, false, false, 0)" value="Agregar">
+                </td>                
+            </table>
+            <br>
+            <table cellspacing="5"  id="tablaM" style="text-align: center; margin: 0 auto;" >
+                <tr>
+                    <td><label><b>Nombre</b></label></td>
+                    <td><label><b>Categoria</b></label></td>
+                    <td><label><b>Antig.</b></label></td>
+                    <td><label><b>Idioma</b></label></td>
+                    <td><label><b>Hijos p/Guar.</b></label></td>
+                    <td><label><b>Present.</b></label></td>
+                    <td><label><b>Km M/P</b></label></td>
+                    <td><label><b>Funcion</b></label></td>
+                    <td><label><b>Sind.</b></label></td>
+                    <td><label><b>Jub.</b></label></td>
+                    <td><label><b>O.Soc.</b></label></td>
+                    <td><label><b>Adic.</b></label></td>
+                    <td><label><b>Sueldo Neto</b></label></td>
+                </tr>
+            </table>
+            <br><label><h1 style="font-size:50px" id="answer"></h1></label>
+        </div>
+    </body>
+</html>
