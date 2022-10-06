@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <button v-on:click="recuperarPost()">Recuperar Post</button>
+    <div v-for="nota in notas">
+      <h1>{{nota.title}}</h1>
+      {{nota.body}}
+      <hr>
+    </div>
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
+  <script>
+var app=new Vue({
+      el: '#aplicacion',
+      data:{ 
+        notas:[]
+      },
+      methods: {
+        recuperarPost: function () {
+          this.$http.get('https://jsonplaceholder.typicode.com/posts').then(function (respuesta) {
+                 this.notas=respuesta.body              
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>
