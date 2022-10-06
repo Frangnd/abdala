@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+ <div id="aplicacion">
+   <p><input type="checkbox" v-model="lenguajes" value="C++">C++</p>
+   <p><input type="checkbox" v-model="lenguajes" value="C">C</p>
+   <p><input type="checkbox" v-model="lenguajes" value="C#">C#</p>
+   <p><input type="checkbox" v-model="lenguajes" value="Java">Java</p>
+   <p><input type="checkbox" v-model="lenguajes" value="Kotlin">Kotlin</p>
+   <p><input type="checkbox" v-model="lenguajes" value="Python">Python</p>
+   <p><input type="checkbox" v-model="lenguajes" value="Ruby">Ruby</p>      
+   <h3>Lenguajes seleccionados</h3>
+   <ul>
+     <li v-for="lenguaje in lenguajes">{{lenguaje}}</li>
+   </ul>
+   <p>Cantidad de lenguajes que conoce:{{lenguajes.length}}</p>
+ </div>
+ 
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+ 
+ <script>
+   var app=new Vue({
+       el: '#aplicacion',
+       data:{ 
+        lenguajes: []
+       }
+   })
+ </script>
+</body>
+</html>
