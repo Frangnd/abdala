@@ -7,28 +7,26 @@
 </head>
 <body>
   <div id="aplicacion">
-    <h1>Listado de actividades</h1>
-    <ol>
-      <li v-for="actividad in actividades">
-        {{actividad}}
-      </li>
-    </ol>
-    Nueva actividad:<input type="text" v-on:keyup.enter="actualizarLista" v-model="actividad" placeholder="Enter para confirmar">
+    <p>Ingrese una frase:
+      <input v-model="frase" v-on:keyup="contabilizarLetrasA" type="text" size="80">
+    </p>
+    <p>Cantidad de letras 'a o 'A'':{{cantidadLetrasa}}</p>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  
   <script>
     var app=new Vue({
       el: '#aplicacion',
       data:{ 
-        actividad: '',
-        actividades: []
+        cantidadLetrasa: 0,
+        frase: ''
       },
       methods: {
-        actualizarLista: function() {
-          this.actividades.push(this.actividad);
-          this.actividad = '';
+        contabilizarLetrasA: function () {
+          var cant=0;
+          for(var f=0; f<this.frase.length; f++)
+            if (this.frase[f]=='a' || this.frase[f]=='A')
+              cant++;
+          this.cantidadLetrasa=cant;
         }
       }
     })
