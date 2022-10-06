@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+ <div id="aplicacion">
+   <p><textarea v-model="comentarios" cols="100" rows="5" maxlength="200"></textarea></p>
+   <p>Cantidad de caracteres ingresados: {{comentarios.length}}</p>
+ </div>
+ 
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+ <script>
+   var app=new Vue({
+       el: '#aplicacion',
+       data:{ 
+         comentarios:''
+       }
+   })
+ </script>
+</body>
+</html>
