@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <table border="1">
+      <tr><td>Código</td><td>Descripción</td><td>Precio</td></tr>
+      <template v-for="articulo in articulos">
+      <tr>
+        <td>{{articulo.codigo}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.precio}}</td>
+      </tr>
+    </template>
+    </table>    
+    <form v-on:submit.prevent="agregarArticulo">
+      <p>
+        Ingrese código:<input type="number" v-model="codigo">
+      </p>
+      <p>
+        Ingrese descripción:<input type="text" v-model="descripcion">
+      </p>
+      <p>
+        Ingrese precio:<input type="text" v-model="precio">
+      </p>
+      <p><input type="submit" value="Agregar"></p>
+    </form>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+  <script>
+    var app=new Vue({
+      el: '#aplicacion',
+      data:{ 
+        codigo: '',
+        descripcion: '',
+        precio: '',
+        articulos: [{
+          codigo:1,
+          descripcion: 'papas',
+          precio: 34
+        }]
+      },
+      methods: {
+        agregarArticulo: function() {
+          this.articulos.push({
+                                codigo: this.codigo,
+                                descripcion: this.descripcion,
+                                precio: this.precio
+                              });
+          this.codigo = '';
+          this.descripcion = '';
+          this.precio = '';
+        }
+      }
+    })
+  </script>
+</body>
+</html>
