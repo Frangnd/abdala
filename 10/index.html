@@ -7,27 +7,26 @@
 </head>
 <body>
  <div id="aplicacion">
-   <p><input type="checkbox" v-model="lenguajes" value="C++">C++</p>
-   <p><input type="checkbox" v-model="lenguajes" value="C">C</p>
-   <p><input type="checkbox" v-model="lenguajes" value="C#">C#</p>
-   <p><input type="checkbox" v-model="lenguajes" value="Java">Java</p>
-   <p><input type="checkbox" v-model="lenguajes" value="Kotlin">Kotlin</p>
-   <p><input type="checkbox" v-model="lenguajes" value="Python">Python</p>
-   <p><input type="checkbox" v-model="lenguajes" value="Ruby">Ruby</p>      
-   <h3>Lenguajes seleccionados</h3>
+   <p><input type="checkbox" v-model="dias" value="Lunes">Lunes</p>
+   <p><input type="checkbox" v-model="dias" value="Martes">Martes</p>
+   <p><input type="checkbox" v-model="dias" value="Miércoles">Miércoles</p>
+   <p><input type="checkbox" v-model="dias" value="Jueves">Jueves</p>
+   <p><input type="checkbox" v-model="dias" value="Viernes">Viernes</p>
+   <p><input type="checkbox" v-model="dias" value="Sábado">Sábado</p>
+   <p><input type="checkbox" v-model="dias" value="Domingo">Domingo</p>
+   <p v-if="dias.length<5" style="color:red">Debe seleccionar por lo menos 5 días</p>
+   <h3>Días seleccionados</h3>
    <ul>
-     <li v-for="lenguaje in lenguajes">{{lenguaje}}</li>
+     <li v-for="dia in dias">{{dia}}</li>
    </ul>
-   <p>Cantidad de lenguajes que conoce:{{lenguajes.length}}</p>
- </div>
+  </div>
  
- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
- 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
  <script>
    var app=new Vue({
        el: '#aplicacion',
        data:{ 
-        lenguajes: []
+        dias: []
        }
    })
  </script>
