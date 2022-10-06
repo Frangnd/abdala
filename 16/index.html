@@ -7,13 +7,16 @@
 </head>
 <body>
   <div id="aplicacion">
-    <button v-on:click="recuperarPost()">Recuperar Post</button>
-    <div v-for="nota in notas">
-      <h1>{{nota.title}}</h1>
-      {{nota.body}}
-      <hr>
+    <button v-on:click="recuperarArticulos()">Recuperar artículos</button>
+    <table border="1">
+        <tr><td>Código</td><td>Descripción</td><td>Precio</td></tr>
+        <tr v-for="articulo in articulos">
+          <td>{{articulo.codigo}}</td>
+          <td>{{articulo.descripcion}}</td>
+          <td>{{articulo.precio}}</td>
+        </tr>
+        </table>
     </div>
-  </div>
  
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
@@ -21,12 +24,12 @@
 var app=new Vue({
       el: '#aplicacion',
       data:{ 
-        notas:[]
+        articulos:[]
       },
       methods: {
-        recuperarPost: function () {
-          this.$http.get('https://jsonplaceholder.typicode.com/posts').then(function (respuesta) {
-                 this.notas=respuesta.body              
+        recuperarArticulos: function () {
+          this.$http.get('http://scratchya.com.ar/vue/datos.php').then(function (respuesta) {
+                 this.articulos=respuesta.body
           })
         }
       }
