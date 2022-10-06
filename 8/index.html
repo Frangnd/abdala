@@ -7,55 +7,36 @@
 </head>
 <body>
   <div id="aplicacion">
-    <table border="1">
-      <tr><td>Código</td><td>Descripción</td><td>Precio</td></tr>
-      <template v-for="articulo in articulos">
-      <tr>
-        <td>{{articulo.codigo}}</td>
-        <td>{{articulo.descripcion}}</td>
-        <td>{{articulo.precio}}</td>
-      </tr>
-    </template>
-    </table>    
-    <form v-on:submit.prevent="agregarArticulo">
+    <form v-on:submit.prevent="rangoValores">
       <p>
-        Ingrese código:<input type="number" v-model="codigo">
+        Ingrese el número menor:<input type="number" v-model="valor1">
       </p>
       <p>
-        Ingrese descripción:<input type="text" v-model="descripcion">
-      </p>
+        Ingrese el número mayor:<input type="number" v-model="valor2">
+      </p>        
       <p>
-        Ingrese precio:<input type="text" v-model="precio">
+        <input type="submit" value="Generar lista">
       </p>
-      <p><input type="submit" value="Agregar"></p>
+      <p>Lista de valores:{{lista}}</p>
     </form>
   </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script>
     var app=new Vue({
       el: '#aplicacion',
       data:{ 
-        codigo: '',
-        descripcion: '',
-        precio: '',
-        articulos: [{
-          codigo:1,
-          descripcion: 'papas',
-          precio: 34
-        }]
+        valor1: '',
+        valor2: '',
+        lista: ''
       },
       methods: {
-        agregarArticulo: function() {
-          this.articulos.push({
-                                codigo: this.codigo,
-                                descripcion: this.descripcion,
-                                precio: this.precio
-                              });
-          this.codigo = '';
-          this.descripcion = '';
-          this.precio = '';
+        rangoValores: function () {
+          var cadena = '';
+          for(var f = this.valor1; f <= this.valor2; f++) {
+            cadena += f + '-';
+          }
+          this.lista = cadena; 
         }
       }
     })
