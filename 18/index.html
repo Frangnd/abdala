@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <acerca-de></acerca-de>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  Vue.component('acerca-de', {
+    template: `<div><p>Programa: xxxxxxxx</p>
+                    <p>Versión: xx</p></div> `
+  })
+
+  new Vue({
+    el: '#aplicacion'
+  })
+</script>
+
+</body>
+</html>
