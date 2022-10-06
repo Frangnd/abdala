@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <p><select v-model="idioma">
+      <option>castellano</option>
+      <option>ingles</option>
+    </select></p>    
+    <hola-mundo v-bind:idioma="idioma"></hola-mundo>
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+<script>
+  Vue.component('hola-mundo', {
+    props: ['idioma'],
+    template: `<div>
+                  <p v-if="idioma=='castellano'">Hola mundo</p>
+                  <p v-if="idioma=='ingles'">Hello world</p>
+              </div>`
+  })
+
+  var app=new Vue({
+    el: '#aplicacion',
+    data: {
+      idioma: 'castellano'
+    }
+  })
+</script>
+
+</body>
+</html>
