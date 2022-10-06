@@ -7,20 +7,29 @@
 </head>
 <body>
   <div id="aplicacion">
-    <button v-on:click="incrementar">El contador vale:{{contador}}</button>
+    <p>Ingrese primer valor:
+      <input type="number" v-model="valor1">
+    </p>
+    <p>Ingrese segundo valor:
+      <input type="number" v-model="valor2">
+    </p>
+    <p>Ingrese primer valor:
+      <button v-on:click="sumarValores">Sumar</button>
+    </p>
+    <p>El resultado de la suma es igual a {{suma}}</p>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  
   <script>
     var app=new Vue({
       el: '#aplicacion',
       data:{ 
-        contador: 0
+        valor1: 0,
+        valor2: 0,
+        suma: ''
       },
       methods: {
-        incrementar: function() {
-          this.contador = this.contador + 1;
+        sumarValores: function() {
+          this.suma = parseInt(this.valor1) + parseInt(this.valor2);
         }
       }      
     })
