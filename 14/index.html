@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <p>Tamaño de la fuente:
+      <input type="range" v-model="tamañoFuente" min=10 max=100>{{tamañoFuente}}
+    </p>
+    <p>Color:
+        <input type="color" v-model="colorParrafo">
+    </p>      
+    <p v-bind:style="{'font-size':tamañoFuente+'px', 'color': colorParrafo}">Párrafo de prueba</p>
+
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  
+  <script>
+   var app=new Vue({
+       el: '#aplicacion',
+       data: { 
+         tamañoFuente: 20,
+         colorParrafo: '#000'
+       }
+   })
+  </script>
+</body>
+</html>
