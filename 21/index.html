@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div id="aplicacion">
+    <contador></contador>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  
+  Vue.component('contador', {
+    template:`<div><button v-on:click="incrementar()">
+              {{cantidad}}
+              </button></div>`,
+    data: function() {
+      return {
+        cantidad: 0
+      }
+    },
+    methods: {
+      incrementar: function() {
+        this.cantidad++;
+      }
+    }
+  });
+
+  var app=new Vue({
+    el: '#aplicacion'
+  })
+
+</script>
+</body>
+</html>
