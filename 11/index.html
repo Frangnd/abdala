@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+ <div id="aplicacion">
+   <p><select v-model="dia" multiple>
+     <opcion>Lunes</opcion>
+     <option>Martes</option>
+     <option>Miércoles</option>
+     <option>Jueves</option>
+     <option>Viernes</option>
+     <option>Sábado</option>
+     <option>Domingo</option>
+   </select></p>
+   <p>Día seleccionado:{{dia}}</p>
+ </div>
+ 
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+ 
+ <script>
+   var app=new Vue({
+       el: '#aplicacion',
+       data:{ 
+        dia:[]
+       }
+   })
+ </script>
+</body>
+</html>
